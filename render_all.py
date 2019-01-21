@@ -10,7 +10,7 @@ rendered_dir needs to match the img_name path in render.py
 """
 user = ""
 
-rendered_dir = "rendered/{}" #needs to match the directory in render.py
+rendered_dir = "rendered/{}.png" #needs to match the directory in render.py
 blender = "blender"
 arg = "-b blends/{}.blend -P blends/render.py"
 ship_txt = "/home/{}/Downloads/ships.txt"
@@ -26,8 +26,11 @@ def ship_dict_get():
         os.mkdir("blends/")
     except:
         print("blends directory already exists")
+    
     with open("blends/render_info.txt",'w') as f:
         f.write(render_info_)
+    with open("blends/render.py","w") as f:
+        f.write(requests.get("https://raw.githubusercontent.com/8b8/endless-sky_render/master/render.py").content.decode())
     ship_dict = {}
     for line in render_info_.split('\n'):
         if line.startswith('ship'):
@@ -86,7 +89,7 @@ def main():
     for ship, item in ship_dict.items():
         try:
             os.system(blender+" "+arg.format(item['sprite']))
-            #downsample(ship)
+            downsample(item['sprite'])
         except:
             print("FAILED ON {}".format(ship))
             break

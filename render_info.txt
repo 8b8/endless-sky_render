@@ -1,0 +1,252 @@
+ship:	Aerie
+	sprite:	aerie
+	shape:	(200, 140)
+ship:	Argosy
+	sprite:	argosy
+	shape:	(190, 90)
+ship:	Arrow
+	sprite:	arrow
+	shape:	(140, 60)
+ship:	Bactrian
+	sprite:	bactrian
+	shape:	(470, 180)
+ship:	Barb
+	sprite:	barb
+	shape:	(60, 60)
+ship:	Barb" "Barb (Proton)
+	sprite:	barbp
+	shape:	(60, 60)
+ship:	Bastion
+	sprite:	bastion
+	shape:	(200, 140)
+ship:	Behemoth
+	sprite:	behemoth
+	shape:	(320, 220)
+ship:	Berserker
+	sprite:	berserker
+	shape:	(100, 100)
+ship:	Blackbird
+	sprite:	blackbird
+	shape:	(130, 160)
+ship:	Bounder
+	sprite:	bounder
+	shape:	(170, 110)
+ship:	Boxwing
+	sprite:	boxwing
+	shape:	(70, 60)
+ship:	Bulk Freighter
+	sprite:	bulk freighter
+	shape:	(420, 180)
+ship:	Carrier
+	sprite:	carrier
+	shape:	(400, 270)
+ship:	Class C Freighter
+	sprite:	bulk freighter
+	shape:	(420, 180)
+ship:	Clipper
+	sprite:	clipper
+	shape:	(110, 100)
+ship:	Combat Drone
+	sprite:	combat drone
+	shape:	(60, 40)
+ship:	Corvette
+	sprite:	corvette
+	shape:	(240, 120)
+ship:	Cruiser
+	sprite:	cruiser
+	shape:	(320, 180)
+ship:	Dagger
+	sprite:	dagger
+	shape:	(72, 48)
+ship:	Dreadnought
+	sprite:	dreadnought
+	shape:	(350, 190)
+ship:	Falcon
+	sprite:	falcon
+	shape:	(300, 160)
+ship:	Finch
+	sprite:	finch
+	shape:	(80, 60)
+ship:	Firebird
+	sprite:	firebird
+	shape:	(150, 130)
+ship:	Flivver
+	sprite:	flivver
+	shape:	(70, 90)
+ship:	Freighter
+	sprite:	freighter
+	shape:	(200, 70)
+ship:	Frigate
+	sprite:	frigate
+	shape:	(200, 124)
+ship:	Fury
+	sprite:	fury
+	shape:	(80, 80)
+ship:	Gunboat
+	sprite:	gunboat
+	shape:	(120, 100)
+ship:	Hauler
+	sprite:	hauler i
+	shape:	(250, 180)
+ship:	Hauler II
+	sprite:	hauler ii
+	shape:	(330, 180)
+ship:	Hauler III
+	sprite:	hauler iii
+	shape:	(400, 180)
+ship:	Hawk
+	sprite:	hawk
+	shape:	(90, 100)
+ship:	Headhunter
+	sprite:	headhunter
+	shape:	(120, 100)
+ship:	Heavy Shuttle
+	sprite:	heavy shuttle
+	shape:	(80, 50)
+ship:	Lance
+	sprite:	lance
+	shape:	(70, 52)
+ship:	Leviathan
+	sprite:	leviathan
+	shape:	(260, 170)
+ship:	Manta
+	sprite:	manta
+	shape:	(170, 150)
+ship:	Modified Argosy
+	sprite:	modified argosy
+	shape:	(190, 90)
+ship:	Mule
+	sprite:	mule
+	shape:	(260, 110)
+ship:	Nest
+	sprite:	nest
+	shape:	(250, 180)
+ship:	Osprey
+	sprite:	osprey
+	shape:	(220, 190)
+ship:	Protector
+	sprite:	protector
+	shape:	(250, 210)
+ship:	Quicksilver
+	sprite:	quicksilver
+	shape:	(110, 80)
+ship:	Rainmaker
+	sprite:	rainmaker
+	shape:	(100, 102)
+ship:	Raven
+	sprite:	raven
+	shape:	(140, 200)
+ship:	Roost
+	sprite:	roost
+	shape:	(325, 180)
+ship:	Scout
+	sprite:	scout
+	shape:	(90, 60)
+ship:	Shuttle
+	sprite:	shuttle
+	shape:	(50, 70)
+ship:	Skein
+	sprite:	skein
+	shape:	(400, 180)
+ship:	Sparrow
+	sprite:	sparrow
+	shape:	(80, 70)
+ship:	Splinter
+	sprite:	splinter
+	shape:	(240, 110)
+ship:	Star Barge
+	sprite:	star barge
+	shape:	(80, 70)
+ship:	Star Queen
+	sprite:	star queen
+	shape:	(240, 100)
+ship:	Surveillance Drone
+	sprite:	surveillance drone
+	shape:	(60, 40)
+ship:	Vanguard
+	sprite:	vanguard
+	shape:	(267, 113)
+ship:	Wasp
+	sprite:	wasp
+	shape:	(86, 70)
+ship:	Marauder Arrow
+	sprite:	marrows
+	shape:	(140, 60)
+ship:	Marauder Arrow" "Marauder Arrow (Engines)
+	sprite:	marrowe
+	shape:	(140, 60)
+ship:	Marauder Arrow" "Marauder Arrow (Weapons)
+	sprite:	marroww
+	shape:	(140, 60)
+ship:	Marauder Bounder
+	sprite:	mbounders
+	shape:	(170, 110)
+ship:	Marauder Bounder" "Marauder Bounder (Engines)
+	sprite:	mboundere
+	shape:	(170, 110)
+ship:	Marauder Bounder" "Marauder Bounder (Weapons)
+	sprite:	mbounderw
+	shape:	(170, 110)
+ship:	Marauder Falcon
+	sprite:	mfalcons
+	shape:	(300, 160)
+ship:	Marauder Falcon" "Marauder Falcon (Engines)
+	sprite:	mfalcone
+	shape:	(300, 160)
+ship:	Marauder Falcon" "Marauder Falcon (Weapons)
+	sprite:	mfalconw
+	shape:	(300, 160)
+ship:	Marauder Firebird
+	sprite:	mfirebirds
+	shape:	(160, 130)
+ship:	Marauder Firebird" "Marauder Firebird (Engines)
+	sprite:	mfirebirde
+	shape:	(160, 130)
+ship:	Marauder Firebird" "Marauder Firebird (Weapons)
+	sprite:	mfirebirdw
+	shape:	(160, 130)
+ship:	Marauder Leviathan
+	sprite:	mleviathans
+	shape:	(260, 170)
+ship:	Marauder Leviathan" "Marauder Leviathan (Engines)
+	sprite:	mleviathane
+	shape:	(260, 170)
+ship:	Marauder Leviathan" "Marauder Leviathan (Weapons)
+	sprite:	mleviathanw
+	shape:	(260, 170)
+ship:	Marauder Manta
+	sprite:	mmantas
+	shape:	(170, 150)
+ship:	Marauder Manta" "Marauder Manta (Engines)
+	sprite:	mmantae
+	shape:	(170, 150)
+ship:	Marauder Manta" "Marauder Manta (Weapons)
+	sprite:	mmantaw
+	shape:	(170, 150)
+ship:	Marauder Quicksilver
+	sprite:	mquicksilvers
+	shape:	(110, 80)
+ship:	Marauder Quicksilver" "Marauder Quicksilver (Engines)
+	sprite:	mquicksilvere
+	shape:	(110, 80)
+ship:	Marauder Quicksilver" "Marauder Quicksilver (Weapons)
+	sprite:	mquicksilverw
+	shape:	(110, 80)
+ship:	Marauder Raven
+	sprite:	mravens
+	shape:	(140, 200)
+ship:	Marauder Raven" "Marauder Raven (Engines)
+	sprite:	mravene
+	shape:	(140, 200)
+ship:	Marauder Raven" "Marauder Raven (Weapons)
+	sprite:	mravenw
+	shape:	(140, 200)
+ship:	Marauder Splinter
+	sprite:	msplinters
+	shape:	(240, 110)
+ship:	Marauder Splinter" "Marauder Splinter (Engines)
+	sprite:	msplintere
+	shape:	(240, 110)
+ship:	Marauder Splinter" "Marauder Splinter (Weapons)
+	sprite:	msplinterw
+	shape:	(240, 110)

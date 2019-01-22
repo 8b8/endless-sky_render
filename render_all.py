@@ -2,6 +2,8 @@ import tarfile
 import requests
 import json
 import os
+import cv2
+import pathlib
 
 """
 All paths are from my own (Linux) computer, to render automatically you need to adjust/change all of them
@@ -13,11 +15,12 @@ user = ""
 rendered_dir = "rendered/{}.png" #needs to match the directory in render.py
 blender = "blender"
 arg = "-b blends/{}.blend -P blends/render.py"
+#arg = "blends/{}.blend -P blends/render.py"
 ship_txt = "/home/{}/Downloads/ships.txt"
 blend_dir = "blends/"
 
 
-use_downsample = False
+use_downsample = True
 
 
 def ship_dict_get():
@@ -29,8 +32,9 @@ def ship_dict_get():
     
     with open("blends/render_info.txt",'w') as f:
         f.write(render_info_)
-    with open("blends/render.py","w") as f:
-        f.write(requests.get("https://raw.githubusercontent.com/8b8/endless-sky_render/master/render.py").content.decode())
+    if not "render.py" in os.listdir("blends/"):
+        with open("blends/render.py","w") as f:
+            f.write(requests.get("https://raw.githubusercontent.com/8b8/endless-sky_render/master/render.py").content.decode())
     ship_dict = {}
     for line in render_info_.split('\n'):
         if line.startswith('ship'):
@@ -46,9 +50,9 @@ def ship_dict_get():
 
 def downsample(ship): #Downsample for increased sharpness
     if use_downsample:
-        ship_img = cv2.imread(rendered_dir.format(ship.lower()), cv2.IMREAD_UNCHANGED)
+        ship_img = cv2.imread(rendered_dir.format(ship), cv2.IMREAD_UNCHANGED)
         ship_img_half = cv2.resize(ship_img, None, fx = 0.5, fy=0.5,interpolation=cv2.INTER_LANCZOS4)
-        cv2.imwrite(rendered_dir.format(ship.lower()).replace('(','\(').replace(')','\)'),ship_img_half)
+        cv2.imwrite(rendered_dir.format(ship),ship_img_half)
 
 
 
@@ -88,12 +92,14 @@ def main():
         print('all files present')
     for ship, item in ship_dict.items():
         try:
-            os.system(blender+" "+arg.format(item['sprite']))
+            print(arg.format(item['sprite']))
+            #if "bulk" in item['sprite']:
+            os.system(blender+" "+arg.format(item['sprite'].replace(" ","\ ")))
             downsample(item['sprite'])
+            #break
         except:
             print("FAILED ON {}".format(ship))
             break
-        break
 
 if __name__ == "__main__":
     main()

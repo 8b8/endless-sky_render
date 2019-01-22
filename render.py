@@ -7,7 +7,7 @@ from mathutils import *
 
 #Script Config
 render_top = True
-render_persp = False
+render_persp = True
 target_dir = False
 
 
@@ -38,8 +38,12 @@ bpy.context.scene.render.engine = 'CYCLES'
 bpy.context.scene.render.resolution_percentage = 100 *resolution_multiplier
 bpy.context.scene.render.tile_x = 16*resolution_multiplier
 bpy.context.scene.render.tile_y = 16*resolution_multiplier
+
+bpy.context.scene.render.threads_mode = "FIXED"
+bpy.context.scene.render.threads = 7
+
 bpy.context.scene.render.use_compositing = True
-bpy.context.scene.cycles.samples = 200 #100-500
+bpy.context.scene.cycles.samples = 300 #100-500
 bpy.context.scene.cycles.filter_width = .3
 
 
@@ -97,6 +101,15 @@ for material in bpy.data.materials:
         tree.nodes.new('ShaderNodeGroup')
         tree.nodes['Group'].node_tree = bpy.data.node_groups['Bulkhead']
         tree.nodes['Group'].inputs[0].default_value = tuple([k**.7 for k in color]+[1.0])
+        #tree.nodes['Group'].inputs["Metallic"].default_value = .05
+        #tree.nodes['Group'].inputs["Specular"].default_value = 1
+        #tree.nodes['Group'].inputs["Roughness"].default_value = .375
+        #tree.nodes['Group'].inputs["Metallic"].default_value = .01
+        
+        tree.nodes['Group'].inputs["Metallic"].default_value = .005
+        tree.nodes['Group'].inputs["Specular"].default_value = .00
+        #tree.nodes['Group'].inputs["Roughness"].default_value = .2
+        tree.nodes['Group'].inputs["Roughness"].default_value = .05
 
 #Geometry soften
 for object in bpy.data.objects:
@@ -164,6 +177,7 @@ if target_dir:
 else:
     img_name = os.sep.join(bpy.path.abspath(bpy.context.blend_data.filepath).split('/')[:-2])+"/rendered/"+ship_name+".png"
 bpy.data.scenes['Scene'].render.filepath = img_name
+
 if render_top:
     bpy.ops.render.render( write_still=True )
 if render_persp:
@@ -208,9 +222,12 @@ if render_persp:
 
     fname =  bpy.path.abspath(bpy.context.blend_data.filepath)
     #img_name = fname[:-6]+'persp'+postfix+'.png'
+    bpy.context.scene.render.resolution_percentage = 100 *.5
     bpy.data.scenes['Scene'].render.filepath = img_name
     bpy.context.scene.render.resolution_y = 1600
     bpy.context.scene.render.resolution_x = 1600
-    #bpy.ops.render.render( write_still=True )
+    img_name = os.sep.join(bpy.path.abspath(bpy.context.blend_data.filepath).split('/')[:-2])+"/persp/"+ship_name+".png"
+    bpy.data.scenes['Scene'].render.filepath = img_name
+    bpy.ops.render.render( write_still=True )
 
 bpy.ops.wm.quit_blender()

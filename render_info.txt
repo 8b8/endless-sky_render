@@ -144,7 +144,7 @@ ship:	Scout
 	shape:	(90, 60)
 ship:	Shuttle
 	sprite:	shuttle
-	shape:	(50, 70)
+	shape:	(70, 50)
 ship:	Skein
 	sprite:	skein
 	shape:	(400, 180)

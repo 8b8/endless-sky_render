@@ -20,30 +20,22 @@ ship_txt = "/home/{}/Downloads/ships.txt"
 blend_dir = "blends/"
 
 
-use_downsample = True
+use_downsample = False
 
 
-def ship_dict_get():
-    render_info_ = requests.get("https://raw.githubusercontent.com/8b8/endless-sky_render/master/render_info.txt").content.decode()
+def setup():
+    render_info_ = requests.get("https://raw.githubusercontent.com/8b8/endless-sky_render/master/render_info.json").content.decode()
     try:
         os.mkdir("blends/")
     except:
         print("blends directory already exists")
     
-    with open("blends/render_info.txt",'w') as f:
+    with open("blends/render_info.json",'w') as f:
         f.write(render_info_)
     if not "render.py" in os.listdir("blends/"):
         with open("blends/render.py","w") as f:
             f.write(requests.get("https://raw.githubusercontent.com/8b8/endless-sky_render/master/render.py").content.decode())
-    ship_dict = {}
-    for line in render_info_.split('\n'):
-        if line.startswith('ship'):
-            ship = line[6:][:]
-            ship_dict.update({ship : {}})
-        if line.find('sprite') > 0:
-            ship_dict[ship].update({'sprite': line.split('\t')[-1]})
-        if line.find('shape') > 0:
-            ship_dict[ship].update({'shape': [int(x) for x in line.split('\t')[-1][1:-2].split(',')]})
+    ship_dict = json.loads(render_info_)
     return ship_dict
 
 
@@ -55,10 +47,6 @@ def downsample(ship): #Downsample for increased sharpness
         cv2.imwrite(rendered_dir.format(ship),ship_img_half)
 
 
-
-
-
-
 def check_files(ship_dict):
     all_files_present = True
     files = os.listdir()
@@ -67,8 +55,8 @@ def check_files(ship_dict):
     else:
         blends = os.listdir('blends/')
         for key, item in ship_dict.items():
-            if not item['sprite']+'.blend' in blends:
-                print(item['sprite']+'.blend'+" not found")
+            if not item['blend'] in blends:
+                print(item['blend']+" not found")
                 all_files_present = False
     if not all_files_present:
         print("Files Mssing")
@@ -84,7 +72,7 @@ def download_files():
 
 
 def main():
-    ship_dict = ship_dict_get()
+    ship_dict = setup()
     if not check_files(ship_dict):
         print('redownload files')
         download_files()
